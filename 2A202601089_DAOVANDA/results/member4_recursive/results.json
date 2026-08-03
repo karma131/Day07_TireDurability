@@ -1,0 +1,450 @@
+{
+  "member": {
+    "name": "Đào Văn Đa",
+    "id": "2A202601089",
+    "role": 4
+  },
+  "strategy": "RecursiveChunker(chunk_size=500)",
+  "data_dir": "data/vinuni_library_services",
+  "embedding_model": "text-embedding-3-small",
+  "chat_model": "gpt-4o-mini",
+  "generation_passes": 1,
+  "chunk_statistics": {
+    "document_count": 7,
+    "chunk_count": 23,
+    "average_chunk_length": 387.87,
+    "max_chunk_length": 493,
+    "per_document": [
+      {
+        "doc_id": "vinuni-graduate-faculty-borrowing",
+        "character_count": 1089,
+        "chunk_count": 3,
+        "average_chunk_length": 361.67,
+        "max_chunk_length": 459
+      },
+      {
+        "doc_id": "vinuni-library-access-policy",
+        "character_count": 2369,
+        "chunk_count": 7,
+        "average_chunk_length": 336.71,
+        "max_chunk_length": 493
+      },
+      {
+        "doc_id": "vinuni-library-faq",
+        "character_count": 1306,
+        "chunk_count": 3,
+        "average_chunk_length": 434.0,
+        "max_chunk_length": 482
+      },
+      {
+        "doc_id": "vinuni-library-learning-support",
+        "character_count": 1012,
+        "chunk_count": 3,
+        "average_chunk_length": 336.0,
+        "max_chunk_length": 444
+      },
+      {
+        "doc_id": "vinuni-library-room-booking",
+        "character_count": 947,
+        "chunk_count": 2,
+        "average_chunk_length": 472.5,
+        "max_chunk_length": 482
+      },
+      {
+        "doc_id": "vinuni-library-spaces",
+        "character_count": 830,
+        "chunk_count": 2,
+        "average_chunk_length": 414.0,
+        "max_chunk_length": 470
+      },
+      {
+        "doc_id": "vinuni-undergraduate-borrowing",
+        "character_count": 1400,
+        "chunk_count": 3,
+        "average_chunk_length": 465.33,
+        "max_chunk_length": 492
+      }
+    ]
+  },
+  "baseline_comparison": [
+    {
+      "doc_id": "vinuni-library-access-policy",
+      "strategy": "fixed_size",
+      "chunk_count": 6,
+      "average_chunk_length": 436.5
+    },
+    {
+      "doc_id": "vinuni-library-access-policy",
+      "strategy": "by_sentences",
+      "chunk_count": 9,
+      "average_chunk_length": 261.44
+    },
+    {
+      "doc_id": "vinuni-library-access-policy",
+      "strategy": "recursive",
+      "chunk_count": 7,
+      "average_chunk_length": 336.71
+    },
+    {
+      "doc_id": "vinuni-library-faq",
+      "strategy": "fixed_size",
+      "chunk_count": 3,
+      "average_chunk_length": 468.67
+    },
+    {
+      "doc_id": "vinuni-library-faq",
+      "strategy": "by_sentences",
+      "chunk_count": 5,
+      "average_chunk_length": 259.6
+    },
+    {
+      "doc_id": "vinuni-library-faq",
+      "strategy": "recursive",
+      "chunk_count": 3,
+      "average_chunk_length": 434.0
+    },
+    {
+      "doc_id": "vinuni-undergraduate-borrowing",
+      "strategy": "fixed_size",
+      "chunk_count": 3,
+      "average_chunk_length": 500.0
+    },
+    {
+      "doc_id": "vinuni-undergraduate-borrowing",
+      "strategy": "by_sentences",
+      "chunk_count": 5,
+      "average_chunk_length": 278.4
+    },
+    {
+      "doc_id": "vinuni-undergraduate-borrowing",
+      "strategy": "recursive",
+      "chunk_count": 3,
+      "average_chunk_length": 465.33
+    }
+  ],
+  "benchmark_results": [
+    {
+      "number": 1,
+      "query": "Sinh viên đại học được mượn tối đa bao nhiêu tài liệu, trong bao lâu và được gia hạn trong điều kiện nào?",
+      "metadata_filter": {
+        "audience": "student"
+      },
+      "gold_answer": "Tối đa 3 tài liệu, mỗi tài liệu trong 2 tuần. Sách được gia hạn một lần thêm 1 tuần nếu chưa quá hạn và không có người khác yêu cầu.",
+      "evidence_doc_ids": [
+        "vinuni-undergraduate-borrowing"
+      ],
+      "evidence_ranks": [
+        1,
+        2
+      ],
+      "missing_term_groups": [],
+      "score": 2,
+      "agent_answer": "Sinh viên đại học được mượn tối đa 3 tài liệu, mỗi tài liệu trong 2 tuần. Sách được gia hạn một lần thêm 1 tuần nếu chưa quá hạn và không có người dùng khác yêu cầu. Việc gia hạn có thể thực hiện trực tuyến hoặc bằng máy self-check tại tầng một hoặc tầng hai. [Nguồn 1]\n\nThông tin đối chiếu trực tiếp từ chính sách: VinUniversity ID đồng thời là thẻ thư viện để mượn tài liệu hoặc thiết bị. Sinh viên đại học được mượn tối đa 3 tài liệu, mỗi tài liệu trong 2 tuần. Sách được gia hạn một lần thêm 1 tuần nếu chưa quá hạn và không có người dùng khác yêu cầu. Có thể gia hạn trực tuyến hoặc bằng máy self-check tại tầng một hoặc tầng hai. [Nguồn 1]",
+      "results": [
+        {
+          "rank": 1,
+          "id": "vinuni-undergraduate-borrowing::chunk_0::20",
+          "doc_id": "vinuni-undergraduate-borrowing",
+          "chunk_index": 0,
+          "source_url": "https://library.vinuni.edu.vn/services/borrow-and-request/undergraduate-and-staff/",
+          "score": 0.689121,
+          "summary": "# Dịch vụ mượn tài liệu cho sinh viên đại học ## Thẻ và định mức mượn VinUniversity ID đồng thời là thẻ thư viện để mượn tài liệu hoặc thiết bị. Sinh viên đại học được mượn tối đa 3 tài liệu, mỗi tài liệu trong 2 tuần. Sách được gia hạn một",
+          "content": "# Dịch vụ mượn tài liệu cho sinh viên đại học\n\n## Thẻ và định mức mượn\n\nVinUniversity ID đồng thời là thẻ thư viện để mượn tài liệu hoặc thiết bị. Sinh viên đại học được mượn tối đa 3 tài liệu, mỗi tài liệu trong 2 tuần. Sách được gia hạn một lần thêm 1 tuần nếu chưa quá hạn và không có người dùng khác yêu cầu. Có thể gia hạn trực tuyến hoặc bằng máy self-check tại tầng một hoặc tầng hai.\n\n## Yêu cầu và nhận sách"
+        },
+        {
+          "rank": 2,
+          "id": "vinuni-undergraduate-borrowing::chunk_1::21",
+          "doc_id": "vinuni-undergraduate-borrowing",
+          "chunk_index": 1,
+          "source_url": "https://library.vinuni.edu.vn/services/borrow-and-request/undergraduate-and-staff/",
+          "score": 0.503894,
+          "summary": "Sinh viên có thể yêu cầu sách qua danh mục trực tuyến. Việc xử lý thường mất 1–2 ngày làm việc và thư viện gửi email khi sách sẵn sàng. Sách được giữ trong 2 ngày để người yêu cầu đến nhận tại quầy lưu hành. ## Mượn thiết bị Thiết bị được m",
+          "content": "Sinh viên có thể yêu cầu sách qua danh mục trực tuyến. Việc xử lý thường mất 1–2 ngày làm việc và thư viện gửi email khi sách sẵn sàng. Sách được giữ trong 2 ngày để người yêu cầu đến nhận tại quầy lưu hành.\n\n## Mượn thiết bị\n\nThiết bị được mượn trong 1 ngày làm việc và phải trả chậm nhất 15 phút trước khi thư viện đóng cửa. Thiết bị quá hạn trên 5 ngày được xem là thất lạc và người mượn phải trả chi phí thay thế. Thiết bị phải được trả trực tiếp cho nhân viên tại quầy lưu hành tầng một."
+        },
+        {
+          "rank": 3,
+          "id": "vinuni-library-faq::chunk_0::10",
+          "doc_id": "vinuni-library-faq",
+          "chunk_index": 0,
+          "source_url": "https://library.vinuni.edu.vn/faq/",
+          "score": 0.497523,
+          "summary": "# Hướng dẫn thao tác thường gặp tại thư viện ## Mượn và trả sách bằng máy Máy self-check ở tầng một hoặc tầng hai được dùng để mượn hoặc trả sách in. Máy trả sách 24/7 tại lối vào chính chỉ dùng để trả sách. ## Xem hạn trả và gia hạn Để xem",
+          "content": "# Hướng dẫn thao tác thường gặp tại thư viện\n\n## Mượn và trả sách bằng máy\n\nMáy self-check ở tầng một hoặc tầng hai được dùng để mượn hoặc trả sách in. Máy trả sách 24/7 tại lối vào chính chỉ dùng để trả sách.\n\n## Xem hạn trả và gia hạn\n\nĐể xem hạn trả hoặc trạng thái quá hạn, người dùng vào website thư viện, mở My Library Account và đăng nhập bằng tài khoản VinUni. Để gia hạn, người dùng có thể chọn RENEW ALL cho tất cả sách hoặc vào LOAN rồi chọn RENEW cho từng cuốn."
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "query": "Một nhóm được đặt phòng học thư viện tối đa bao lâu, bao nhiêu lần và điều gì xảy ra nếu đến muộn?",
+      "metadata_filter": null,
+      "gold_answer": "Tối đa 2 giờ mỗi phiên, 2 phiên mỗi ngày và 4 phiên mỗi tuần trên tổng số phòng. Có thể đặt trước tối đa 1 tuần; nếu vắng trong 10 phút đầu, phòng được giải phóng cho người khác.",
+      "evidence_doc_ids": [
+        "vinuni-library-room-booking"
+      ],
+      "evidence_ranks": [
+        1
+      ],
+      "missing_term_groups": [],
+      "score": 2,
+      "agent_answer": "Một nhóm được đặt phòng học thư viện tối đa 2 giờ trong một phiên, 2 phiên trong một ngày và 4 phiên trong một tuần, tính chung cho tất cả phòng. Nếu người dùng đến muộn quá 10 phút, đặt chỗ sẽ bị hủy. [Nguồn 1]\n\nThông tin đối chiếu trực tiếp từ chính sách: Mỗi nhóm được đặt tối đa 2 giờ trong một phiên, 2 phiên trong một ngày và 4 phiên trong một tuần, tính chung cho tất cả phòng. Có thể đặt trong ngày sử dụng hoặc sớm nhất 1 tuần trước đó. [Nguồn 1]",
+      "results": [
+        {
+          "rank": 1,
+          "id": "vinuni-library-room-booking::chunk_0::16",
+          "doc_id": "vinuni-library-room-booking",
+          "chunk_index": 0,
+          "source_url": "https://library.vinuni.edu.vn/room-booking/",
+          "score": 0.560913,
+          "summary": "# Quy định đặt phòng học nhóm tại thư viện ## Đối tượng và nguyên tắc đặt phòng Phòng học nhóm có thể được đặt bởi sinh viên, giảng viên và nhân viên VinUniversity. Một nhóm phải có ít nhất 2 người. Việc đặt phòng được xử lý theo thứ tự đăn",
+          "content": "# Quy định đặt phòng học nhóm tại thư viện\n\n## Đối tượng và nguyên tắc đặt phòng\n\nPhòng học nhóm có thể được đặt bởi sinh viên, giảng viên và nhân viên VinUniversity. Một nhóm phải có ít nhất 2 người. Việc đặt phòng được xử lý theo thứ tự đăng ký trước.\n\n## Giới hạn sử dụng\n\nMỗi nhóm được đặt tối đa 2 giờ trong một phiên, 2 phiên trong một ngày và 4 phiên trong một tuần, tính chung cho tất cả phòng. Có thể đặt trong ngày sử dụng hoặc sớm nhất 1 tuần trước đó."
+        },
+        {
+          "rank": 2,
+          "id": "vinuni-library-access-policy::chunk_4::7",
+          "doc_id": "vinuni-library-access-policy",
+          "chunk_index": 4,
+          "source_url": "https://policy.vinuni.edu.vn/all-policies/library-policies-for-users/",
+          "score": 0.533647,
+          "summary": "Thiết bị thư viện được mượn trong 1 ngày làm việc và phải trả trực tiếp tại quầy lưu hành tầng một, muộn nhất 15 phút trước giờ đóng cửa. Thiết bị quá hạn trên 5 ngày được xem là thất lạc và người mượn phải trả chi phí thay thế. Phòng chức ",
+          "content": "Thiết bị thư viện được mượn trong 1 ngày làm việc và phải trả trực tiếp tại quầy lưu hành tầng một, muộn nhất 15 phút trước giờ đóng cửa. Thiết bị quá hạn trên 5 ngày được xem là thất lạc và người mượn phải trả chi phí thay thế.\n\nPhòng chức năng được đặt qua Microsoft Outlook trong ngày sử dụng hoặc sớm nhất 1 tuần trước đó. Việc đặt phòng theo thứ tự đăng ký, tối đa 2 giờ mỗi phiên và 2 phiên mỗi ngày trên tổng số phòng. Đặt chỗ bị hủy nếu người dùng đến muộn quá 10 phút."
+        },
+        {
+          "rank": 3,
+          "id": "vinuni-library-spaces::chunk_0::18",
+          "doc_id": "vinuni-library-spaces",
+          "chunk_index": 0,
+          "source_url": "https://library.vinuni.edu.vn/resources/library-spaces/",
+          "score": 0.481213,
+          "summary": "# Các loại không gian trong thư viện ## Không gian cộng tác Thư viện có phòng thảo luận, booth thảo luận mở và khu ghế ngồi ở cả hai tầng. Người dùng còn có thể tiếp cận maker space, studio, phòng teleconference và phòng máy tính. Khu học t",
+          "content": "# Các loại không gian trong thư viện\n\n## Không gian cộng tác\n\nThư viện có phòng thảo luận, booth thảo luận mở và khu ghế ngồi ở cả hai tầng. Người dùng còn có thể tiếp cận maker space, studio, phòng teleconference và phòng máy tính. Khu học tập 24/7 ở tầng một mở cả ngày lẫn đêm; một số không gian chuyên dụng có thể yêu cầu đặt trước.\n\n## Không gian tư vấn"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "query": "Thiết bị thư viện được mượn trong bao lâu, phải trả lúc nào và khi nào bị xem là thất lạc?",
+      "metadata_filter": null,
+      "gold_answer": "Thiết bị được mượn trong 1 ngày làm việc, phải trả trực tiếp tại quầy tầng một chậm nhất 15 phút trước giờ đóng cửa. Quá hạn trên 5 ngày thì bị xem là thất lạc và người mượn phải trả chi phí thay thế.",
+      "evidence_doc_ids": [
+        "vinuni-library-access-policy",
+        "vinuni-undergraduate-borrowing"
+      ],
+      "evidence_ranks": [
+        1,
+        2,
+        3
+      ],
+      "missing_term_groups": [],
+      "score": 2,
+      "agent_answer": "Thiết bị thư viện được mượn trong 1 ngày làm việc. Người mượn phải trả thiết bị chậm nhất 15 phút trước giờ đóng cửa. Nếu thiết bị quá hạn trên 5 ngày, nó sẽ được xem là thất lạc và người mượn phải trả chi phí thay thế. [Nguồn 1]\n\nThông tin đối chiếu trực tiếp từ chính sách: Thiết bị thư viện được mượn trong 1 ngày làm việc và phải trả trực tiếp tại quầy lưu hành tầng một, muộn nhất 15 phút trước giờ đóng cửa. Thiết bị quá hạn trên 5 ngày được xem là thất lạc và người mượn phải trả chi phí thay thế. [Nguồn 1]",
+      "results": [
+        {
+          "rank": 1,
+          "id": "vinuni-library-access-policy::chunk_4::7",
+          "doc_id": "vinuni-library-access-policy",
+          "chunk_index": 4,
+          "source_url": "https://policy.vinuni.edu.vn/all-policies/library-policies-for-users/",
+          "score": 0.674056,
+          "summary": "Thiết bị thư viện được mượn trong 1 ngày làm việc và phải trả trực tiếp tại quầy lưu hành tầng một, muộn nhất 15 phút trước giờ đóng cửa. Thiết bị quá hạn trên 5 ngày được xem là thất lạc và người mượn phải trả chi phí thay thế. Phòng chức ",
+          "content": "Thiết bị thư viện được mượn trong 1 ngày làm việc và phải trả trực tiếp tại quầy lưu hành tầng một, muộn nhất 15 phút trước giờ đóng cửa. Thiết bị quá hạn trên 5 ngày được xem là thất lạc và người mượn phải trả chi phí thay thế.\n\nPhòng chức năng được đặt qua Microsoft Outlook trong ngày sử dụng hoặc sớm nhất 1 tuần trước đó. Việc đặt phòng theo thứ tự đăng ký, tối đa 2 giờ mỗi phiên và 2 phiên mỗi ngày trên tổng số phòng. Đặt chỗ bị hủy nếu người dùng đến muộn quá 10 phút."
+        },
+        {
+          "rank": 2,
+          "id": "vinuni-undergraduate-borrowing::chunk_1::21",
+          "doc_id": "vinuni-undergraduate-borrowing",
+          "chunk_index": 1,
+          "source_url": "https://library.vinuni.edu.vn/services/borrow-and-request/undergraduate-and-staff/",
+          "score": 0.544345,
+          "summary": "Sinh viên có thể yêu cầu sách qua danh mục trực tuyến. Việc xử lý thường mất 1–2 ngày làm việc và thư viện gửi email khi sách sẵn sàng. Sách được giữ trong 2 ngày để người yêu cầu đến nhận tại quầy lưu hành. ## Mượn thiết bị Thiết bị được m",
+          "content": "Sinh viên có thể yêu cầu sách qua danh mục trực tuyến. Việc xử lý thường mất 1–2 ngày làm việc và thư viện gửi email khi sách sẵn sàng. Sách được giữ trong 2 ngày để người yêu cầu đến nhận tại quầy lưu hành.\n\n## Mượn thiết bị\n\nThiết bị được mượn trong 1 ngày làm việc và phải trả chậm nhất 15 phút trước khi thư viện đóng cửa. Thiết bị quá hạn trên 5 ngày được xem là thất lạc và người mượn phải trả chi phí thay thế. Thiết bị phải được trả trực tiếp cho nhân viên tại quầy lưu hành tầng một."
+        },
+        {
+          "rank": 3,
+          "id": "vinuni-library-access-policy::chunk_3::6",
+          "doc_id": "vinuni-library-access-policy",
+          "chunk_index": 3,
+          "source_url": "https://policy.vinuni.edu.vn/all-policies/library-policies-for-users/",
+          "score": 0.542096,
+          "summary": "Người dùng có thể yêu cầu tài liệu đang được mượn qua hệ thống thư viện. Khi tài liệu sẵn sàng, thư viện giữ tài liệu trong 2 ngày; quá thời gian này yêu cầu sẽ bị hủy. Course Reserve, tài liệu thất lạc, tài liệu không được lưu hành, hoặc y",
+          "content": "Người dùng có thể yêu cầu tài liệu đang được mượn qua hệ thống thư viện. Khi tài liệu sẵn sàng, thư viện giữ tài liệu trong 2 ngày; quá thời gian này yêu cầu sẽ bị hủy. Course Reserve, tài liệu thất lạc, tài liệu không được lưu hành, hoặc yêu cầu của tài khoản đã bị chặn sẽ không được chấp nhận.\n\n## Thiết bị và phòng chức năng"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "query": "Sinh viên truy cập tài nguyên điện tử từ ngoài trường bằng cách nào và cần lưu ý gì khi dùng máy tính công cộng?",
+      "metadata_filter": null,
+      "gold_answer": "Đăng nhập bằng VinUni ID. Tài nguyên chỉ dùng cho mục đích cá nhân, phi thương mại và phải tuân thủ bản quyền; khi dùng máy công cộng phải đóng trình duyệt sau khi hoàn tất.",
+      "evidence_doc_ids": [
+        "vinuni-undergraduate-borrowing"
+      ],
+      "evidence_ranks": [
+        1
+      ],
+      "missing_term_groups": [],
+      "score": 2,
+      "agent_answer": "Sinh viên hiện tại có thể truy cập tài nguyên điện tử từ ngoài trường bằng cách sử dụng VinUni ID. Khi sử dụng máy tính công cộng, người dùng cần lưu ý đóng trình duyệt sau khi hoàn tất để tránh người khác sử dụng sai tài khoản hoặc tài nguyên. Tài nguyên điện tử phải được sử dụng cho mục đích cá nhân, phi thương mại và tuân thủ bản quyền cùng điều khoản cấp phép. [Nguồn 1]\n\nThông tin đối chiếu trực tiếp từ chính sách: Sinh viên hiện tại có thể truy cập tài nguyên trực tuyến từ ngoài trường bằng VinUni ID. Khi dùng máy tính công cộng, người dùng phải đóng trình duyệt sau khi hoàn tất để tránh người khác sử dụng sai tài khoản hoặc tài nguyên. Tài nguyên điện tử phải được dùng cho mục đích cá nhân, phi thương mại và tuân thủ bản quyền cùng điều khoản cấp phép. [Nguồn 1]",
+      "results": [
+        {
+          "rank": 1,
+          "id": "vinuni-undergraduate-borrowing::chunk_2::22",
+          "doc_id": "vinuni-undergraduate-borrowing",
+          "chunk_index": 2,
+          "source_url": "https://library.vinuni.edu.vn/services/borrow-and-request/undergraduate-and-staff/",
+          "score": 0.717796,
+          "summary": "Danh mục thiết bị gồm laptop, iPad, bộ sạc, chuột, tai nghe, adapter, bút trình chiếu, bút viết và tẩy bảng, cùng tủ khóa. ## Truy cập từ xa Sinh viên hiện tại có thể truy cập tài nguyên trực tuyến từ ngoài trường bằng VinUni ID. Khi dùng m",
+          "content": "Danh mục thiết bị gồm laptop, iPad, bộ sạc, chuột, tai nghe, adapter, bút trình chiếu, bút viết và tẩy bảng, cùng tủ khóa.\n\n## Truy cập từ xa\n\nSinh viên hiện tại có thể truy cập tài nguyên trực tuyến từ ngoài trường bằng VinUni ID. Khi dùng máy tính công cộng, người dùng phải đóng trình duyệt sau khi hoàn tất để tránh người khác sử dụng sai tài khoản hoặc tài nguyên. Tài nguyên điện tử phải được dùng cho mục đích cá nhân, phi thương mại và tuân thủ bản quyền cùng điều khoản cấp phép."
+        },
+        {
+          "rank": 2,
+          "id": "vinuni-graduate-faculty-borrowing::chunk_2::2",
+          "doc_id": "vinuni-graduate-faculty-borrowing",
+          "chunk_index": 2,
+          "source_url": "https://library.vinuni.edu.vn/services/borrow-and-request/graduate-faculty-and-instructors/",
+          "score": 0.59826,
+          "summary": "Người dùng hiện tại có thể truy cập tài nguyên điện tử từ xa bằng tài khoản VinUni. Tài nguyên chỉ được dùng cho mục đích cá nhân, phi thương mại và phải tuân thủ luật bản quyền cũng như điều khoản của nhà cung cấp.",
+          "content": "Người dùng hiện tại có thể truy cập tài nguyên điện tử từ xa bằng tài khoản VinUni. Tài nguyên chỉ được dùng cho mục đích cá nhân, phi thương mại và phải tuân thủ luật bản quyền cũng như điều khoản của nhà cung cấp."
+        },
+        {
+          "rank": 3,
+          "id": "vinuni-library-access-policy::chunk_5::8",
+          "doc_id": "vinuni-library-access-policy",
+          "chunk_index": 5,
+          "source_url": "https://policy.vinuni.edu.vn/all-policies/library-policies-for-users/",
+          "score": 0.533523,
+          "summary": "## Tài nguyên điện tử và sao chụp Tài nguyên điện tử chỉ dành cho người dùng được VinUni cho phép. Người dùng đăng nhập bằng VinUni ID và chỉ sử dụng tài liệu cho mục đích cá nhân, phi thương mại. Dịch vụ in, sao chụp và quét chỉ phục vụ họ",
+          "content": "## Tài nguyên điện tử và sao chụp\n\nTài nguyên điện tử chỉ dành cho người dùng được VinUni cho phép. Người dùng đăng nhập bằng VinUni ID và chỉ sử dụng tài liệu cho mục đích cá nhân, phi thương mại. Dịch vụ in, sao chụp và quét chỉ phục vụ học tập, nghiên cứu, phi thương mại và phải tuân thủ luật bản quyền.\n\n## Trạng thái văn bản"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "query": "Sinh viên đã trả sách nhưng tài khoản vẫn báo quá hạn thì cần kiểm tra và xử lý theo các bước nào?",
+      "metadata_filter": null,
+      "gold_answer": "Xác nhận sách đã được trả qua máy self-check hoặc trạm trả 24/7, kiểm tra email xác nhận trả sách, rồi liên hệ Information Desk nếu tài khoản vẫn chưa cập nhật.",
+      "evidence_doc_ids": [
+        "vinuni-library-faq"
+      ],
+      "evidence_ranks": [
+        1,
+        2
+      ],
+      "missing_term_groups": [],
+      "score": 2,
+      "agent_answer": "Sinh viên cần thực hiện các bước sau để kiểm tra và xử lý khi tài khoản vẫn báo quá hạn mặc dù đã trả sách:\n\n1. **Xác nhận việc trả sách**: Đảm bảo rằng sách đã được trả qua máy self-check hoặc trạm trả sách 24/7 trước khi đưa lên giá. [Nguồn 1]\n\n2. **Kiểm tra email xác nhận**: Xem lại email xác nhận trả sách từ thư viện để đảm bảo rằng việc trả sách đã được ghi nhận. [Nguồn 1]\n\n3. **Liên hệ với nhân viên**: Nếu tài khoản vẫn chưa được cập nhật sau khi đã thực hiện hai bước trên, sinh viên cần liên hệ với nhân viên tại Information Desk để được hỗ trợ. [Nguồn 1]\n\nThông tin đối chiếu trực tiếp từ chính sách: Trước tiên, người dùng cần xác nhận sách đã được trả qua máy self-check hoặc trạm trả sách 24/7 trước khi đưa lên giá. Tiếp theo, kiểm tra email xác nhận trả sách của thư viện. Nếu tài khoản vẫn chưa cập nhật, liên hệ nhân viên tại Information Desk. [Nguồn 1]",
+      "results": [
+        {
+          "rank": 1,
+          "id": "vinuni-library-faq::chunk_1::11",
+          "doc_id": "vinuni-library-faq",
+          "chunk_index": 1,
+          "source_url": "https://library.vinuni.edu.vn/faq/",
+          "score": 0.67018,
+          "summary": "## Đã trả sách nhưng tài khoản vẫn báo quá hạn Trước tiên, người dùng cần xác nhận sách đã được trả qua máy self-check hoặc trạm trả sách 24/7 trước khi đưa lên giá. Tiếp theo, kiểm tra email xác nhận trả sách của thư viện. Nếu tài khoản vẫ",
+          "content": "## Đã trả sách nhưng tài khoản vẫn báo quá hạn\n\nTrước tiên, người dùng cần xác nhận sách đã được trả qua máy self-check hoặc trạm trả sách 24/7 trước khi đưa lên giá. Tiếp theo, kiểm tra email xác nhận trả sách của thư viện. Nếu tài khoản vẫn chưa cập nhật, liên hệ nhân viên tại Information Desk.\n\n## Tìm sách\n\nNgười dùng đăng nhập website thư viện bằng tài khoản VinUni, nhập từ khóa và chọn Library Catalog. Có thể dùng các bộ lọc ở bên trái danh sách kết quả để thu hẹp phạm vi."
+        },
+        {
+          "rank": 2,
+          "id": "vinuni-library-faq::chunk_0::10",
+          "doc_id": "vinuni-library-faq",
+          "chunk_index": 0,
+          "source_url": "https://library.vinuni.edu.vn/faq/",
+          "score": 0.591103,
+          "summary": "# Hướng dẫn thao tác thường gặp tại thư viện ## Mượn và trả sách bằng máy Máy self-check ở tầng một hoặc tầng hai được dùng để mượn hoặc trả sách in. Máy trả sách 24/7 tại lối vào chính chỉ dùng để trả sách. ## Xem hạn trả và gia hạn Để xem",
+          "content": "# Hướng dẫn thao tác thường gặp tại thư viện\n\n## Mượn và trả sách bằng máy\n\nMáy self-check ở tầng một hoặc tầng hai được dùng để mượn hoặc trả sách in. Máy trả sách 24/7 tại lối vào chính chỉ dùng để trả sách.\n\n## Xem hạn trả và gia hạn\n\nĐể xem hạn trả hoặc trạng thái quá hạn, người dùng vào website thư viện, mở My Library Account và đăng nhập bằng tài khoản VinUni. Để gia hạn, người dùng có thể chọn RENEW ALL cho tất cả sách hoặc vào LOAN rồi chọn RENEW cho từng cuốn."
+        },
+        {
+          "rank": 3,
+          "id": "vinuni-undergraduate-borrowing::chunk_0::20",
+          "doc_id": "vinuni-undergraduate-borrowing",
+          "chunk_index": 0,
+          "source_url": "https://library.vinuni.edu.vn/services/borrow-and-request/undergraduate-and-staff/",
+          "score": 0.54906,
+          "summary": "# Dịch vụ mượn tài liệu cho sinh viên đại học ## Thẻ và định mức mượn VinUniversity ID đồng thời là thẻ thư viện để mượn tài liệu hoặc thiết bị. Sinh viên đại học được mượn tối đa 3 tài liệu, mỗi tài liệu trong 2 tuần. Sách được gia hạn một",
+          "content": "# Dịch vụ mượn tài liệu cho sinh viên đại học\n\n## Thẻ và định mức mượn\n\nVinUniversity ID đồng thời là thẻ thư viện để mượn tài liệu hoặc thiết bị. Sinh viên đại học được mượn tối đa 3 tài liệu, mỗi tài liệu trong 2 tuần. Sách được gia hạn một lần thêm 1 tuần nếu chưa quá hạn và không có người dùng khác yêu cầu. Có thể gia hạn trực tuyến hoặc bằng máy self-check tại tầng một hoặc tầng hai.\n\n## Yêu cầu và nhận sách"
+        }
+      ]
+    }
+  ],
+  "filter_analysis": {
+    "query": "Sinh viên đại học được mượn tối đa bao nhiêu tài liệu, trong bao lâu và được gia hạn trong điều kiện nào?",
+    "filter": {
+      "audience": "student"
+    },
+    "filtered_doc_ids": [
+      "vinuni-undergraduate-borrowing",
+      "vinuni-undergraduate-borrowing",
+      "vinuni-library-faq"
+    ],
+    "unfiltered_doc_ids": [
+      "vinuni-library-access-policy",
+      "vinuni-undergraduate-borrowing",
+      "vinuni-graduate-faculty-borrowing"
+    ],
+    "unfiltered_results": [
+      {
+        "rank": 1,
+        "doc_id": "vinuni-library-access-policy",
+        "score": 0.787714
+      },
+      {
+        "rank": 2,
+        "doc_id": "vinuni-undergraduate-borrowing",
+        "score": 0.689121
+      },
+      {
+        "rank": 3,
+        "doc_id": "vinuni-graduate-faculty-borrowing",
+        "score": 0.677253
+      }
+    ]
+  },
+  "total_score": 10,
+  "similarity_predictions": [
+    {
+      "number": 1,
+      "sentence_a": "Sinh viên có thể gia hạn sách thư viện trực tuyến.",
+      "sentence_b": "Người học được phép kéo dài thời hạn mượn sách qua website thư viện.",
+      "prediction": "cao",
+      "score": 0.725871,
+      "actual_label": "cao",
+      "prediction_correct": true
+    },
+    {
+      "number": 2,
+      "sentence_a": "Mỗi nhóm được đặt phòng học tối đa hai giờ.",
+      "sentence_b": "Thời lượng tối đa cho một phiên đặt phòng nhóm là 120 phút.",
+      "prediction": "cao",
+      "score": 0.591021,
+      "actual_label": "cao",
+      "prediction_correct": true
+    },
+    {
+      "number": 3,
+      "sentence_a": "Thiết bị quá hạn trên năm ngày được xem là thất lạc.",
+      "sentence_b": "Thời tiết Hà Nội hôm nay có mưa lớn.",
+      "prediction": "thấp",
+      "score": 0.288613,
+      "actual_label": "thấp",
+      "prediction_correct": true
+    },
+    {
+      "number": 4,
+      "sentence_a": "Đăng nhập VinUni ID để truy cập tài nguyên từ xa.",
+      "sentence_b": "Sinh viên sử dụng tài khoản VinUni khi đọc cơ sở dữ liệu ngoài trường.",
+      "prediction": "cao",
+      "score": 0.634631,
+      "actual_label": "cao",
+      "prediction_correct": true
+    },
+    {
+      "number": 5,
+      "sentence_a": "Thư viện có không gian học tập mở 24/7.",
+      "sentence_b": "Người mượn phải trả chi phí thay thế thiết bị thất lạc.",
+      "prediction": "thấp",
+      "score": 0.207318,
+      "actual_label": "thấp",
+      "prediction_correct": true
+    }
+  ]
+}
